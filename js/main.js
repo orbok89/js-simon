@@ -1,3 +1,4 @@
+// funzione random 5 numeri
 function rnd5() {
     var  vet5 =[];
     for( var i = 0; i<5; i++){
@@ -7,7 +8,7 @@ function rnd5() {
     }
     return vet5;
 }
-
+// funzione che prende il vettore random e il vettore dell utente e vede se ci sono i numeri dell utente
 function controllo (vettore_giusto, vettore_utente){
     var vettore_finale= [];
     for (var i= 0 ; i < vettore_giusto.length; i++ ){
@@ -18,24 +19,26 @@ function controllo (vettore_giusto, vettore_utente){
         }
 
     }
-    return vettore_finale;
+    return [vettore_finale, vettore_finale.length];
 }
+// funzione per far inserire all utente i numeri
 function inserire_numeri(){
     var mio_vettore=[];
-    for(i= 0; i<3; i++){
+    for(i= 0; i<5; i++){
         mio_vettore.push(parseInt(prompt('inserisci numero')));
     }
     return mio_vettore;
 }
+
+
 var a = rnd5();
 alert(a);
 console.log(a);
-var b = setTimeout (inserire_numeri, 3000);
-console.log(b);
-
-
-console.log(controllo(a,b));
-
+setTimeout(gioco(), 3000);
+function gioco(){
+    var b = inserire_numeri();
+    console.log(controllo(a,b));
+}
 
 // Un alert() espone 5 numeri generati casualmente.
 // Da li parte un timer di 30 secondi.
